@@ -1,0 +1,2 @@
+[B]2020-06-21 v1.0.0:[/B]
+ * SilneReci.tv - first release
