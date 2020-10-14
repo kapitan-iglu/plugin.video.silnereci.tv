@@ -87,8 +87,7 @@ def listEpisodes(url):
 	logDbg("listEpisodes()")
 	logDbg("\turl="+url)
 	data = getHtmlFromUrl(url)
-#	pattern = re.compile('<article class="([^"]+).+?<a href="([^"]+)"\s+title="([^"]+)">.+?data-src="([^"]+)".+?<span class="updated[^>]+>(.+?)</span>', re.DOTALL)
-	pattern = re.compile('<article class="([^"]+).+?<a href="([^"]+)"\s+title="([^"]+)">.+?data-src="([^"]+)"(.+?)<span class="updated[^>]+>(.+?)</span>', re.DOTALL)
+	pattern = re.compile('<article class="([^"]+).+?<a href="([^"]+)"\s+title="([^"]+)">.+?src="([^"]+)"(.+?)<span class="updated[^>]+>(.+?)</span>', re.DOTALL)
 	it = re.finditer(pattern,data)
 	for item in it:
 		tags,link,title,img,related,date = item.groups()

@@ -1,2 +1,5 @@
-[B]2020-06-21 v1.0.0:[/B]
+[B]2020-10-14 v0.5.0:[/B]
+ * Fixed episode listing after webpage change
+
+[B]2020-07-09 v0.4.0:[/B]
  * SilneReci.tv - first release
