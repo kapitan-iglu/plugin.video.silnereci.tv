@@ -140,7 +140,7 @@ def getYTid(data_id):
 	logDbg("getYTID("+data_id+")")
 	values = {'action' : 'vlog_format_content',	'format' : 'video',	'id' : data_id }
 	data = urllib.urlencode(values)
-	req = urllib2.Request('https://silnereci.sk/wp-admin/admin-ajax.php', data)
+	req = urllib2.Request('https://silnereci.sk/wp/wp-admin/admin-ajax.php', data)
 	req.add_header('User-Agent', useragent)
 	response = urllib2.urlopen(req)
 	httpdata = response.read()
