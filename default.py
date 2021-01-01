@@ -75,13 +75,14 @@ def getJsonDataFromUrl(url):
 
 def listCategories():
 	logDbg("listCategories()")
+	addDir("Featured",__baseurl__+"/komik/featured/",1,None)
+#	addDir('Komici',__baseurl__+"/komici/',1,None)
 	data = getHtmlFromUrl(__baseurl__+'/tv/')
 	pattern = re.compile('<h4><a href="(.+?)"[^>]*?>(.+?)</a></h4>', re.DOTALL)
 	it = re.finditer(pattern,data)
 	for item in it:
 		link,title = item.groups()
 		addDir(title.strip(),__baseurl__+link,1,None)
-#	addDir('Komici','https://silnereci.sk/komici/',1,None)
 
 def listEpisodes(url):
 	logDbg("listEpisodes()")
@@ -129,7 +130,7 @@ def getVideoUrl(url):
 	match = re.compile(r'data-action="video"\s+data-id="([0-9]+)"', re.DOTALL).search(httpdata)
 	if not match:
 		logDbg("\tdata-id not found")
-		notifyErr(u"Platený obsah?")
+		notifyErr(u"Platený/externý obsah?")
 		return None
 	ytid=getYTid(match.group(1))
 	if ytid:
